@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FREDOM Organisasi</title>
+
+<style>
+* {margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+html {scroll-behavior:smooth;}
+
+body {
+  background: #0b1f3a;
+  color: #e5e7eb;
+}
+
+/* NAVBAR */
+nav {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  flex-wrap:wrap;
+  background: rgba(11,31,58,0.9);
+  position:sticky;
+  top:0;
+  backdrop-filter: blur(10px);
+}
+
+.logo-nav {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-nav img {
+  width:35px;
+}
+
+.logo-nav h1 {
+  color:#3b82f6;
+  font-size:clamp(18px,4vw,22px);
+}
+
+nav div:last-child {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+nav a {
+  color:#e5e7eb;
+  text-decoration:none;
+  font-size:14px;
+}
+
+/* HERO */
+.hero {
+  min-height:80vh;
+  padding:40px 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero img {
+  width:100px;
+  margin-bottom:20px;
+  animation: fadeUp 1s ease;
+}
+
+.hero h2 {
+  font-size:clamp(24px,6vw,40px);
+  color:#3b82f6;
+  animation: fadeUp 1s ease;
+}
+
+.hero p {
+  margin:20px 0;
+  color:#9ca3af;
+  font-size:14px;
+}
+
+/* BUTTON */
+.btn {
+  background:#f97316;
+  padding:12px 25px;
+  border-radius:30px;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.3s;
+  box-shadow:0 0 10px #f97316;
+}
+
+.btn:hover {
+  transform:scale(1.05);
+  background:#ea580c;
+}
+
+/* SECTION */
+section {
+  padding:50px 15px;
+  max-width:1000px;
+  margin:auto;
+}
+
+h3 {
+  color:#3b82f6;
+  margin-bottom:20px;
+  font-size:clamp(20px,5vw,26px);
+}
+
+/* TAB */
+.tab-menu {
+  display:flex;
+  overflow-x:auto;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.tab-menu::-webkit-scrollbar {
+  display:none;
+}
+
+.tab-btn {
+  padding:10px 15px;
+  background:#1e3a5f;
+  color:white;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+.tab-btn.active {
+  background:#3b82f6;
+}
+
+.tab-content {
+  display:none;
+  background:#142c4c;
+  padding:15px;
+  border-radius:10px;
+  font-size:14px;
+}
+
+.tab-content.active {
+  display:block;
+}
+
+/* ANIMATION */
+.fade {opacity:0;transform:translateY(30px);transition:0.6s;}
+.fade.show {opacity:1;transform:translateY(0);}
+
+@keyframes fadeUp {
+  from {opacity:0;transform:translateY(30px);}
+  to {opacity:1;transform:translateY(0);}
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:30px;
+  color:#9ca3af;
+  font-size:14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .btn {
+    padding:10px 20px;
+    font-size:14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo-nav">
+    <img src="logo.png">
+    <h1>FREDOM</h1>
+  </div>
+  <div>
+    <a href="#about">Tentang</a>
+    <a href="#join">Daftar</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="logo.png">
+  <h2>Bangun Mental. Kuasai Diri. Raih Prestasi.</h2>
+  <p>Komunitas Pencak Silat & Pengembangan Karakter</p>
+  <a href="#join" class="btn">Gabung Sekarang</a>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="fade">
+<h3>Tentang FREDOM</h3>
+
+<div class="tab-menu">
+<button class="tab-btn active" onclick="openTab(event,'latar')">Latar</button>
+<button class="tab-btn" onclick="openTab(event,'tujuan')">Tujuan</button>
+<button class="tab-btn" onclick="openTab(event,'visi')">Visi</button>
+<button class="tab-btn" onclick="openTab(event,'misi')">Misi</button>
+<button class="tab-btn" onclick="openTab(event,'keuangan')">Keuangan</button>
+<button class="tab-btn" onclick="openTab(event,'engagement')">Engagement</button>
+<button class="tab-btn" onclick="openTab(event,'target')">Target</button>
+<button class="tab-btn" onclick="openTab(event,'evaluasi')">Evaluasi</button>
+<button class="tab-btn" onclick="openTab(event,'modul')">Modul</button>
+<button class="tab-btn" onclick="openTab(event,'pelatih')">Pelatih</button>
+</div>
+
+<div class="tab-content active" id="latar">
+FREDOM hadir sebagai wadah untuk menggali dan mengembangkan potensi anak-anak dan remaja melalui pelestarian budaya Indonesia, khususnya dalam bidang olahraga pencak silat. Organisasi ini bertujuan menciptakan generasi yang tidak hanya kuat secara fisik, tetapi juga memiliki karakter, disiplin, dan mental yang tangguh.
+</div>
+
+<div class="tab-content" id="tujuan">
+<ul>
+<li>Pengembangan karakter (character building)</li>
+<li>Meningkatkan kemandirian</li>
+<li>Penguasaan bela diri praktis</li>
+<li>Pencapaian prestasi</li>
+<li>Meningkatkan kesehatan fisik dan mental</li>
+<li>Melestarikan budaya Indonesia</li>
+</ul>
+</div>
+
+<div class="tab-content" id="visi">
+Menjadi komunitas bela diri yang melahirkan generasi berkarakter, mandiri, dan berprestasi di tingkat nasional maupun internasional.
+</div>
+
+<div class="tab-content" id="misi">
+<ul>
+<li>Latihan rutin: Melatih teknik dengan metode yang seru (fun) namun tetap disiplin</li>
+<li>Menjaga adab: Selalu sopan dan saling menghormati sesama anggota, pelatih, dan orang lain</li>
+<li>Berani tampil & berjuang: Mengikuti kompetisi untuk melatih mental dan meraih prestasi</li>
+<li>Menjaga kekompakan: Membangun solidaritas dan kerja sama tim</li>
+</ul>
+</div>
+
+<div class="tab-content" id="keuangan">
+<p><strong>Iuran bulanan (flat)</strong></p>
+<p>Contoh: Rp130.000/bulan (sudah termasuk kas dan honor pelatih)</p>
+<br>
+<p><strong>Iuran per datang</strong></p>
+<p>Tidak ada biaya pendaftaran awal, cukup bayar setiap latihan</p>
+<p>Contoh: Rp10.000 – Rp15.000 per pertemuan</p>
+</div>
+
+<div class="tab-content" id="engagement">
+<ul>
+<li>Latihan bersama rutin</li>
+<li>Kegiatan bonding (game / fun training)</li>
+<li>Event internal dan sparring</li>
+<li>Partisipasi lomba / kejuaraan</li>
+</ul>
+</div>
+
+<div class="tab-content" id="target">
+<ul>
+<li>Meningkatkan jumlah anggota aktif</li>
+<li>Mengikuti minimal 1–2 kompetisi dalam setahun</li>
+<li>Mencetak atlet berprestasi</li>
+<li>Membangun komunitas yang solid dan dikenal luas</li>
+</ul>
+</div>
+
+<div class="tab-content" id="evaluasi">
+<ul>
+<li>Evaluasi perkembangan teknik anggota secara berkala</li>
+<li>Penilaian kedisiplinan dan kehadiran</li>
+<li>Evaluasi program latihan oleh pelatih</li>
+<li>Feedback dari anggota untuk peningkatan kualitas organisasi</li>
+</ul>
+</div>
+
+<div class="tab-content" id="modul">
+<ul>
+<li>Teknik dasar pencak silat</li>
+<li>Teknik lanjutan dan kombinasi</li>
+<li>Sparring / tanding</li>
+<li>Latihan fisik (kekuatan, kecepatan, stamina)</li>
+<li>Pembentukan mental dan karakter</li>
+</ul>
+</div>
+
+<div class="tab-content" id="pelatih">
+<ul>
+<li>Pelatih utama sebagai penanggung jawab</li>
+<li>Asisten pelatih membantu latihan</li>
+<li>Sistem jenjang kemampuan anggota</li>
+<li>Evaluasi berkala oleh pelatih</li>
+</ul>
+</div>
+
+</section>
+
+<!-- JOIN -->
+<section id="join" class="fade">
+<h3>Gabung Sekarang</h3>
+<p>Mulai perjalananmu 🚀</p><br>
+<a class="btn" href="https://wa.me/6282122100470">Daftar via WhatsApp</a>
+</section>
+
+<footer>© 2026 FREDOM ORGANISASI</footer>
+
+<script>
+const faders=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
+const trigger=window.innerHeight*0.85;
+faders.forEach(el=>{
+if(el.getBoundingClientRect().top<trigger){
+el.classList.add('show');
+}
+});
+});
+
+function openTab(e,id){
+document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));
+document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+e.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>
