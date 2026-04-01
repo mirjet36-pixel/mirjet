@@ -1,196 +1,78 @@
+## 🌐 2. Konfigurasi IP Address
+
+```bash
+nano /etc/network/interfaces
+
+
+nano /etc/apt/sources.list
+deb http://deb.debian.org/debian bookworm main contrib non-free-firmware
+deb http://deb.debian.org/debian bookworm-updates main contrib non-free-firmware
+deb http://security.debian.org/debian-security bookworm-security main contrib non-free-firmware
+
+apt install bind9 dnsutils -y
+
+
+nano /etc/bind/named.conf.local
+cp /etc/bind/db.local /etc/bind/db.lab-smk.xyz
+nano /etc/bind/db.lab-smk.xyz
+
+named-checkzone lab-smk.xyz /etc/bind/db.lab-smk.xyz
+
+
+nano /var/www/html/index.html
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FREDOM Organisasi</title>
-
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar Modern</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: linear-gradient(90deg, #4facfe, #00f2fe);
+      color: #fff;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #000;
+    }
+  </style>
 </head>
-
 <body>
-
-<nav>
-  <div class="logo-nav">
-    <img src="logo.png">
-    <h1>FREDOM</h1>
-  </div>
-  <div>
-    <a href="#about">Tentang</a>
-    <a href="#filosofi">Filosofi</a>
-    <a href="#join">Daftar</a>
-  </div>
-</nav>
-
-<div class="hero">
-  <img src="logo.png">
-  <h2>Bangun Mental. Kuasai Diri. Raih Prestasi.</h2>
-  <p>Komunitas Pencak Silat & Pengembangan Karakter</p>
-  <a href="#join" class="btn">Gabung Sekarang</a>
-</div>
-
-<!-- ABOUT -->
-<section id="about" class="fade">
-<h3>Tentang FREDOM</h3>
-
-<div class="tab-menu">
-<button class="tab-btn active" onclick="openTab('latar')">Latar</button>
-<button class="tab-btn" onclick="openTab('tujuan')">Tujuan</button>
-<button class="tab-btn" onclick="openTab('visi')">Visi</button>
-<button class="tab-btn" onclick="openTab('misi')">Misi</button>
-<button class="tab-btn" onclick="openTab('keuangan')">Keuangan</button>
-<button class="tab-btn" onclick="openTab('engagement')">Engagement</button>
-<button class="tab-btn" onclick="openTab('target')">Target</button>
-<button class="tab-btn" onclick="openTab('evaluasi')">Evaluasi</button>
-<button class="tab-btn" onclick="openTab('modul')">Modul</button>
-<button class="tab-btn" onclick="openTab('pelatih')">Pelatih</button>
-</div>
-
-<div class="tab-content active" id="latar">
-FREDOM hadir sebagai wadah untuk menggali dan mengembangkan potensi anak-anak dan remaja melalui pelestarian budaya Indonesia, khususnya dalam bidang olahraga pencak silat. Organisasi ini bertujuan menciptakan generasi yang tidak hanya kuat secara fisik, tetapi juga memiliki karakter, disiplin, dan mental yang tangguh.
-</div>
-
-<div class="tab-content" id="tujuan">
-<ul>
-<li>Pengembangan karakter (character building)</li>
-<li>Meningkatkan kemandirian</li>
-<li>Penguasaan bela diri praktis</li>
-<li>Pencapaian prestasi</li>
-<li>Meningkatkan kesehatan fisik dan mental</li>
-<li>Melestarikan budaya Indonesia</li>
-</ul>
-</div>
-
-<div class="tab-content" id="visi">
-Menjadi komunitas bela diri yang melahirkan generasi berkarakter, mandiri, dan berprestasi di tingkat nasional maupun internasional.
-</div>
-
-<div class="tab-content" id="misi">
-<ul>
-<li>Latihan rutin: Melatih teknik dengan metode yang seru (fun) namun tetap disiplin</li>
-<li>Menjaga adab: Selalu sopan dan saling menghormati sesama anggota, pelatih, dan orang lain</li>
-<li>Berani tampil & berjuang: Mengikuti kompetisi untuk melatih mental dan meraih prestasi</li>
-<li>Menjaga kekompakan: Membangun solidaritas dan kerja sama tim</li>
-</ul>
-</div>
-
-<div class="tab-content" id="keuangan">
-<p><strong>Iuran bulanan (flat)</strong></p>
-<p>Contoh: Rp130.000/bulan (sudah termasuk kas dan honor pelatih)</p>
-<br>
-<p><strong>Iuran per datang</strong></p>
-<p>Tidak ada biaya pendaftaran awal, cukup bayar setiap latihan</p>
-<p>Contoh: Rp10.000 – Rp15.000 per pertemuan</p>
-</div>
-
-<div class="tab-content" id="engagement">
-<ul>
-<li>Latihan bersama rutin</li>
-<li>Kegiatan bonding (game / fun training)</li>
-<li>Event internal dan sparring</li>
-<li>Partisipasi lomba / kejuaraan</li>
-</ul>
-</div>
-
-<div class="tab-content" id="target">
-<ul>
-<li>Meningkatkan jumlah anggota aktif</li>
-<li>Mengikuti minimal 1–2 kompetisi dalam setahun</li>
-<li>Mencetak atlet berprestasi</li>
-<li>Membangun komunitas yang solid dan dikenal luas</li>
-</ul>
-</div>
-
-<div class="tab-content" id="evaluasi">
-<ul>
-<li>Evaluasi perkembangan teknik anggota secara berkala</li>
-<li>Penilaian kedisiplinan dan kehadiran</li>
-<li>Evaluasi program latihan oleh pelatih</li>
-<li>Feedback dari anggota untuk peningkatan kualitas organisasi</li>
-</ul>
-</div>
-
-<div class="tab-content" id="modul">
-<ul>
-<li>Teknik dasar pencak silat</li>
-<li>Teknik lanjutan dan kombinasi</li>
-<li>Sparring / tanding</li>
-<li>Latihan fisik (kekuatan, kecepatan, stamina)</li>
-<li>Pembentukan mental dan karakter</li>
-</ul>
-</div>
-
-<div class="tab-content" id="pelatih">
-<ul>
-<li>Pelatih utama sebagai penanggung jawab</li>
-<li>Asisten pelatih membantu latihan</li>
-<li>Sistem jenjang kemampuan anggota</li>
-<li>Evaluasi berkala oleh pelatih</li>
-</ul>
-</div>
-
-</section>
-
-<!-- FILOSOFI -->
-<section id="filosofi" class="fade">
-<h3>Filosofi Hirarki FREDOM ORGANIZATION</h3>
-
-<div class="grid">
-
-<div class="card">
-<h4>🔥 Bebas</h4>
-<p>
-Tahap awal dimana seseorang bergabung karena rasa ingin tahu, minat, atau sekadar mencoba. 
-Tidak ada tekanan, yang penting hadir dan merasakan proses.
-</p>
-</div>
-
-<div class="card">
-<h4>⚡ Kebutuhan</h4>
-<p>
-Latihan mulai menjadi bagian dari kehidupan. Disiplin mulai terbentuk, 
-dan kehadiran bukan lagi karena ingin, tapi karena merasa perlu berkembang.
-</p>
-</div>
-
-<div class="card">
-<h4>🏆 Atlet</h4>
-<p>
-Tahap tertinggi dimana fokus sudah pada prestasi, mental juara, dan konsistensi tinggi. 
-Di sini anggota siap menghadapi kompetisi dan membawa nama organisasi.
-</p>
-</div>
-
-</div>
-</section>
-
-<!-- JOIN -->
-<section id="join" class="fade">
-<h3>Gabung Sekarang</h3>
-<p>Mulai perjalananmu 🚀</p><br>
-<a class="btn" href="https://wa.me/6281234567890">Daftar via WhatsApp</a>
-</section>
-
-<footer>© 2026 FREDOM ORGANISASI</footer>
-
-<script>
-const faders=document.querySelectorAll('.fade');
-window.addEventListener('scroll',()=>{
-const trigger=window.innerHeight*0.85;
-faders.forEach(el=>{
-if(el.getBoundingClientRect().top<trigger){
-el.classList.add('show');
-}
-});
-});
-
-function openTab(id){
-document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));
-document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-event.target.classList.add('active');
-}
-</script>
-
+  <nav>
+    <h2>MyWeb</h2>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
 </body>
 </html>
+
+
+a2enmod ssl
+mkdir /etc/apache2/ssl
+
+
+openssl req -x509 -nodes -days 365 \
+-newkey rsa:2048 \
+-keyout /etc/apache2/ssl/lab-smk.key \
+-out /etc/apache2/ssl/lab-smk.crt
+
+nano /etc/apache2/sites-available/lab-smk-ssl.conf
